@@ -6,9 +6,33 @@
         <title>Weather App</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="../output.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <h1 class="text-3xl bg-red-400 text-white p-2">Hello world</h1>
+        <!-- Mobile view-->
+        <main class="mobile-view flex sm:invisible">
+            <section class="card js-card">
+                <div class="search-box">
+                    <input type="text" name="search" id="input-area" placeholder="Enter your city" class="rounded-full">
+
+                    <span class="search-icon rounded-full ">
+                        <!-- <i class="fa fa-search" style="font-size:24px; color:grey"></i> -->
+                        <svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </span>
+                </div>
+
+                <div class="weather-data">
+                    <span class="weather-icon">Cloudy</span>
+                    <span class="temperature">22.4</span>
+                    <span class="city-name">New York</span>
+                </div>
+
+                <footer class="other-info">
+                    <div class="humidity"></div>
+                    <div class="wind"></div>
+                </footer>
+            </section>
+        </main>
     </body>
     <script src="script.js"></script>
 </html>
