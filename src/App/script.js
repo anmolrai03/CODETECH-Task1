@@ -1,10 +1,7 @@
 
 const apiKey = 'dda019d72edee1983ad20afd4423ad57';
 const apiurl = 'https://api.openweathermap.org/data/2.5/weather?units=metric';
-const cityname = 'Padrauna';
 
-// &q=padrauna
-// let 
 
 //Getting elements as variables.
 const inputEle = document.querySelector('#input-area');
