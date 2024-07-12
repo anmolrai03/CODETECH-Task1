@@ -1,14 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: #fff;
 }
 
 body{
     background-color: #313131;
 }
 
+
+/* Moblie view css */
 .mobile-view{
     height: 100vh;
     width: 100vw;
@@ -23,7 +29,7 @@ body{
     width: 60vw;
     max-width: 460px;
     background: linear-gradient(135deg, #00feba, #5b548a);
-    color: #fff;
+    /* color: #fff; */
     border-radius: 10px;
     margin: 6px;
 }
@@ -132,4 +138,41 @@ body{
 
 .humidity-details p, .wind-details p{
     display: flex;
+}
+
+
+/* Desktop View CSS */
+.input-div{
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25vw;
+    /* box-sizing: border-box; */
+}
+
+.inputField{
+    outline: none;
+    color: black;
+    width: 90%;
+    height: 100%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.search-btn{
+    display: flex;
+    width: 50px;
+    align-items: center;
+    justify-content: center;
+    margin-left: -2px;
+    border-left: 1px solid grey;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.navbar ul{
+    /* border: 2px solid black; */
+    align-items: center;
+    justify-content: center;
 }
