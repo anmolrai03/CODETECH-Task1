@@ -3,7 +3,7 @@ const apiKey = 'dda019d72edee1983ad20afd4423ad57';
 const apiurl = 'https://api.openweathermap.org/data/2.5/weather?units=metric';
 
 
-//Getting elements as variables.
+//Getting elements as variables. Mobile 
 const inputEle = document.querySelector('#input-area');
 const searchBtn = document.querySelector('.js-search-icon');
 const weatherIconEle = document.querySelector('.js-weather-icon');
@@ -20,22 +20,71 @@ const windValue =  document.querySelector('.js-wind-speed');
 // console.log(humidityValue);
 // console.log(windValue);
 
+
+// GETTING ELEMENTS AS VARIABLE. DESKTOP
+const inputFieldDekEle = document.querySelector('.js-inputField');
+// const inputEle = document.querySelector('.js-inputField');
+const searchBtnDekEle = document.querySelector('.js-search-btn');
+
+const humidityDataDek = document.querySelector(".js-humidity-data");
+const pressureDataDek = document.querySelector('.js-pressure-data');
+
+const weatherIconDekEle = document.querySelector('.js-weather-icon');
+// const weatherDesciptionDekEle = document.querySelector('.js-fig-caption');
+const tempDekEle = document.querySelector('.js-temperature');
+const cityNameDekEle = document.querySelector('.js-city-name');
+const feelsLikeDekEle = document.querySelector('.js-feels-like');
+
+const windSpeedDekEle = document.querySelector('.js-wind-speed');
+const gustSpeedDekEle = document.querySelector('.js-gust');
+const degDekEle = document.querySelector('.js-deg');
+
+console.log(humidityDataDek);
+console.log(pressureDataDek);
+
+console.log(weatherIconDekEle);
+// console.log(weatherDesciptionDekEle);
+console.log(tempDekEle);
+console.log(cityNameDekEle);
+console.log(feelsLikeDekEle);
+
+
+console.log(windSpeedDekEle);
+console.log(gustSpeedDekEle);
+console.log(degDekEle);
+
 // functions for working
 function completeURL(cityname){
     return apiurl + `&q=${cityname}` + `&appid=${apiKey}`;
 }
 
 
+function updatePage(tempData, location, humidityData, windData, weatherIconCode,weatherDesciption, pressureData, feelsLikeData, gustData, degData)
+{
 
-function updatePage(tempData, location, humidityData, windData, weatherIconCode,weatherDesciption){
-    //
-    inputEle.innerText = '';
+    //Both mobile and desktop
     weatherIconUpadate(weatherIconCode,weatherDesciption);
+    
+    //Mobile
     tempEle.innerText = tempData + '°C';
     cityNameEle.innerText = location;
     humidityValue.innerText = humidityData +'%';
     windValue.innerText = windData + ' km/h';
     inputEle.value = '';
+
+    //Desktop
+    humidityDataDek.innerText = humidityData +'%';
+    pressureDataDek.innerText = "Pressure: "+ pressureData + ' hPa';
+
+    tempDekEle.innerText = tempData + '°C';
+    cityNameDekEle.innerText = location;
+    feelsLikeDekEle.innerText = `Feels Like: ${feelsLikeData} °C`;
+
+    windSpeedDekEle.innerText = windData + ' km/h';
+    gustSpeedDekEle.innerText = `Gust: ${gustData} km/h`;
+    degDekEle.innerText = `Deg: ${degData}°`;
+
+    inputFieldDekEle.value = '';
 }
 
 function weatherIconUpadate(weatherIconCode,weatherDesciption){
@@ -44,51 +93,97 @@ function weatherIconUpadate(weatherIconCode,weatherDesciption){
         <img src="https://openweathermap.org/img/wn/${weatherIconCode}@2x.png" alt="weather-Icon">
         <p>${weatherDesciption}</p>
     `;
+    //Mobile
     weatherIconEle.innerHTML = imageHTML;
+    //Desktop
+    weatherIconDekEle.innerHTML = imageHTML;
 }
 
 //Using API.
 function fetchAPI(url){
-    let temp , cityName , humidity, windSpeed, weatherIconCode , weatherDesciption;
+    // let temp , cityName , humidity, windSpeed, weatherIconCode , weatherDesciption, pressureData, gustData, degData;
     fetch(url)
     .then((response) => response.json())
     .then((data) => {
-        temp = data.main.temp;
-        cityName = data.name;
-        humidity = data.main.humidity;
-        windSpeed = data.wind.speed;
-        weatherIconCode = data.weather[0].icon;
-        weatherDesciption = data.weather[0].description;
-        // console.log(temp);
-        // console.log(cityName);
-        // console.log(humidity);
-        // console.log(windSpeed);
-        // console.log(weatherIconCode);
-        // console.log(weatherDesciption);
-        updatePage(temp,cityName,humidity,windSpeed,weatherIconCode,weatherDesciption);
+        
+
+        let temp = data.main.temp;
+        let cityName = data.name;
+        let  humidity = data.main.humidity;
+        let windSpeed = data.wind.speed;
+        let weatherIconCode = data.weather[0].icon;
+        let weatherDesciption = data.weather[0].description;
+
+        let feelslikeData = data.main.feels_like;
+        let pressureData = data.main.pressue;
+
+        let gustData = data.wind.gust;
+        let degData = data.wind.deg;
+        // console.log(pressureData);
+
+        // (tempData, location, humidityData, windData, weatherIconCode,weatherDesciption, pressureData, feelsLikeData, gustData, degData)
+
+        updatePage(temp,cityName,humidity,windSpeed,weatherIconCode,weatherDesciption,pressureData,feelslikeData, gustData , degData);
     })
     .catch((error) => alert('City Entered is not Found. Please Re-enter.'));
     // console.log('Error Encountered:',error)
     // return [temp,cityName,humidity,windSpeed,weatherIconCode,weatherDesciption];
 }
 
+// console.log(searchBtn);
+// console.log(searchBtnDekEle);
 
 function searchBtnClickHandle(){
     let citynameSearchField;
+
+    //MOBILE
+    // if(searchBtn !== 'null'){
+    //     console.log('button reached');
+    //     searchBtn.addEventListener('click' , (e) => {
+    //         console.log('button working mobile')
+    //         e.preventDefault();
+    //         citynameSearchField = inputEle.value;
+    //         // console.log(completeURL(citynameSearchField));
+    //         let url = completeURL(citynameSearchField);
+    //         fetchAPI(url);
+    //         // let [temp,cityName,humidity,windSpeed,weatherIconCode,weatherDesciption] = fetchAPI(completeURL(citynameSearchField));
+    //         // console.log(temp,cityName,humidity,windSpeed,weatherIconCode,weatherDesciption)
+    //         // updatePage(temp,cityName,humidity,windSpeed,weatherIconCode,weatherDesciption);
+    //         // console.log(completeURL(cityname));
+    //     });
+    // }
     searchBtn.addEventListener('click' , (e) => {
         e.preventDefault();
         citynameSearchField = inputEle.value;
         // console.log(completeURL(citynameSearchField));
         let url = completeURL(citynameSearchField);
         fetchAPI(url);
-        // let [temp,cityName,humidity,windSpeed,weatherIconCode,weatherDesciption] = fetchAPI(completeURL(citynameSearchField));
-        // console.log(temp,cityName,humidity,windSpeed,weatherIconCode,weatherDesciption)
-        // updatePage(temp,cityName,humidity,windSpeed,weatherIconCode,weatherDesciption);
-        // console.log(completeURL(cityname));
+    });
+
+    //DESKTOP
+    // if(searchBtnDekEle !== 'null'){
+    //     searchBtnDekEle.addEventListener('click', (e) => {
+    //         console.log('button workin deks');
+    //         citynameSearchField = inputFieldDekEle.value;
+    //         e.preventDefault();
+    //         let url = completeURL(citynameSearchField);
+    //         fetchAPI(url);
+    //     })
+    // }
+    searchBtnDekEle.addEventListener('click', (e) => {
+        citynameSearchField = inputFieldDekEle.value;
+        e.preventDefault();
+        let url = completeURL(citynameSearchField);
+        fetchAPI(url);
     })
 }
 
 searchBtnClickHandle();
+
+// console.log(inputEle);
+// console.log(inputFieldDekEle);
+
+//Mobile Input enter button functionality
 inputEle.addEventListener('keydown',(e)=> {
     // console.log(e.key);
     if(e.key === 'Enter'){
@@ -97,3 +192,16 @@ inputEle.addEventListener('keydown',(e)=> {
         fetchAPI(url);
     }
 })
+
+
+//DESKTOP Input enter button functionality
+inputFieldDekEle.addEventListener('keydown',(e)=> {
+    if(e.key === 'Enter'){
+        let citynameSearchField = inputFieldDekEle.value;
+        let url = completeURL(citynameSearchField);
+        fetchAPI(url);
+    }
+})
+
+
+//Calling main function for working to start.

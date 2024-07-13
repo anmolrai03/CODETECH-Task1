@@ -190,7 +190,8 @@ body{
     border: 3px solid white;
     height: 65vh;
     width: 100vw;
-    align-items: center;
+    /* align-items: center; */
+    align-items: start;
     justify-content: space-evenly;
 }
 
@@ -225,8 +226,10 @@ body{
     /* align-items: start; */
     justify-content: center;
     text-align: center;
-    height: 350px;
+    max-height: 350px;
     row-gap: 6px;
+    margin-top: 10vh;
+    /* flex-wrap: wrap; */
 }
 
 /* .humidity-icon img{
@@ -236,10 +239,10 @@ body{
 
 
 
-.card-d h1{
+/* .card-d h1{
     margin-top: -50px;
 
-}
+} */
 
 .footer-section{
     border: 3px solid red;

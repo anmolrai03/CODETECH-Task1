@@ -11,7 +11,7 @@
     </head>
     <body>
         <!-- Mobile view-->
-        <!-- <main class="mobile-view flex sm:hidden">
+        <main class="mobile-view flex sm:hidden">
             <section class="card js-card">
                 <div class="search-box">
                     <input type="text" name="search" id="input-area" placeholder="Enter your city" class="rounded-full">
@@ -50,7 +50,7 @@
                     </div>
                 </footer>
             </section>
-        </main> -->
+        </main>
         <!-- Desktop View -->
         <nav class="navbar hidden sm:flex bg-blue-400 p-4 align-middle justify-between ">
             <ul class="flex flex-row gap-x-6 text-xl ml-2 p-2">
@@ -62,7 +62,7 @@
             <div class="input-div js-input-div text-base mr-2 p-2">
                 <input type="text" placeholder="Jaipur" class="inputField js-inputField text-center py-1">
 
-                <button class="search-btn border-2 bg-white p-2"> 
+                <button class="search-btn js-search-btn border-2 bg-white p-2"> 
                     <svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" style="color: black;"></path>
                     </svg>
                 </button>
@@ -76,18 +76,18 @@
                 <picture class="humidity-icon p-1 mb-3">
                     <img src="https://cdn-icons-png.flaticon.com/512/578/578135.png" alt="humidity-Icon">
                 </picture>
-                <p class="text-xl">34%</p>
-                <p class="text-base">Pressure: 1000</p>
+                <p class="js-humidity-data text-xl ">34%</p>
+                <p class="js-pressure-data text-base ">Pressure: 1000</p>
             </section>
 
             <section class="card-d" id="temp-card">
-                <picture class="weather-icon mb-3">
+                <picture class="weather-icon js-weather-icon mb-3">
                     <img src="https://cdn-icons-png.flaticon.com/512/6363/6363293.png" alt="weather-icon">
-                    <figcaption class="mt-1">Scatterd Cloudy</figcaption>
+                    <figcaption class="js-fig-caption mt-1">Scatterd Cloudy</figcaption>
                 </picture>
-                <p class="text-4xl">23°C</p>
-                <p class="text-2xl">Delhi</p>
-                <p class="text-lg">Feels like: 34°C</p>
+                <p class="js-temperature text-4xl">23°C</p>
+                <p class="js-city-name text-2xl">Delhi</p>
+                <p class="js-feels-like text-lg">Feels like: 34°C</p>
             </section>
 
             <section class="card-d" id="wind-card">
@@ -95,9 +95,9 @@
                 <picture class="wind-icon">
                     <img src="https://cdn-icons-png.flaticon.com/512/6232/6232535.png" alt="Wind-Icon">
                 </picture>
-                <p class="text-lg">Speed: 23 km/hr</p>
-                <p class="text-lg">Gust: 34 km/h</p>
-                <p class="text-lg">Deg: 34°</p>
+                <p class="js-wind-speed text-lg">Speed: 23 km/hr</p>
+                <p class="js-gust text-lg">Gust: 34 km/h</p>
+                <p class="js-deg text-lg">Deg: 34°</p>
             </section>
         </main>
 
