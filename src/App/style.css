@@ -115,11 +115,13 @@ body{
     /* justify-content: center; */
     column-gap: 6px;
     /* border: 1px solid black; */
+    flex-wrap: wrap;
 }
 
 .humidity img, .wind img{
     width: 35px;
     height: 35px;
+    flex-wrap: wrap;
     /* object-fit: cover;
     object-position: center; */
     /* border: 1px solid black; */
