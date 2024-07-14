@@ -26,32 +26,32 @@ const inputFieldDekEle = document.querySelector('.js-inputField');
 // const inputEle = document.querySelector('.js-inputField');
 const searchBtnDekEle = document.querySelector('.js-search-btn');
 
-const humidityDataDek = document.querySelector(".js-humidity-data");
-const pressureDataDek = document.querySelector('.js-pressure-data');
+const humidityDataDek = document.querySelector(".js-humidity-data-dek");
+const pressureDataDek = document.querySelector('.js-pressure-data-dek');
 
-const weatherIconDekEle = document.querySelector('.js-weather-icon');
+const weatherIconDekEle = document.querySelector('.js-weather-icon-dek');
 // const weatherDesciptionDekEle = document.querySelector('.js-fig-caption');
-const tempDekEle = document.querySelector('.js-temperature');
-const cityNameDekEle = document.querySelector('.js-city-name');
-const feelsLikeDekEle = document.querySelector('.js-feels-like');
+const tempDekEle = document.querySelector('.js-temperature-dek');
+const cityNameDekEle = document.querySelector('.js-city-name-dek');
+const feelsLikeDekEle = document.querySelector('.js-feels-like-dek');
 
-const windSpeedDekEle = document.querySelector('.js-wind-speed');
-const gustSpeedDekEle = document.querySelector('.js-gust');
-const degDekEle = document.querySelector('.js-deg');
+const windSpeedDekEle = document.querySelector('.js-wind-speed-dek');
+const gustSpeedDekEle = document.querySelector('.js-gust-dek');
+const degDekEle = document.querySelector('.js-deg-dek');
 
-console.log(humidityDataDek);
-console.log(pressureDataDek);
+// console.log(humidityDataDek);
+// console.log(pressureDataDek);
 
-console.log(weatherIconDekEle);
-// console.log(weatherDesciptionDekEle);
-console.log(tempDekEle);
-console.log(cityNameDekEle);
-console.log(feelsLikeDekEle);
+// console.log(weatherIconDekEle);
+// // console.log(weatherDesciptionDekEle);
+// console.log(tempDekEle);
+// console.log(cityNameDekEle);
+// console.log(feelsLikeDekEle);
 
 
-console.log(windSpeedDekEle);
-console.log(gustSpeedDekEle);
-console.log(degDekEle);
+// console.log(windSpeedDekEle);
+// console.log(gustSpeedDekEle);
+// console.log(degDekEle);
 
 // functions for working
 function completeURL(cityname){
@@ -59,7 +59,7 @@ function completeURL(cityname){
 }
 
 
-function updatePage(tempData, location, humidityData, windData, weatherIconCode,weatherDesciption, pressureData, feelsLikeData, gustData, degData)
+function updatePage(tempData, location, humidityData, windData, weatherIconCode,weatherDesciption, pressureData, feelsLikeData, degData)
 {
 
     //Both mobile and desktop
@@ -80,8 +80,12 @@ function updatePage(tempData, location, humidityData, windData, weatherIconCode,
     cityNameDekEle.innerText = location;
     feelsLikeDekEle.innerText = `Feels Like: ${feelsLikeData} °C`;
 
-    windSpeedDekEle.innerText = windData + ' km/h';
-    gustSpeedDekEle.innerText = `Gust: ${gustData} km/h`;
+    windSpeedDekEle.innerText = 'Speed:'+windData + ' km/h';
+    // if(gustData === 'undefined'){
+    //     gustSpeedDekEle.innerText = 'Gust: Not Available';
+    // } else{
+    //     gustSpeedDekEle.innerText = `Gust: ${gustData} km/h`;
+    // }
     degDekEle.innerText = `Deg: ${degData}°`;
 
     inputFieldDekEle.value = '';
@@ -106,7 +110,8 @@ function fetchAPI(url){
     .then((response) => response.json())
     .then((data) => {
         
-
+        // console.log(data);
+        // console.log(data.main.pressure);
         let temp = data.main.temp;
         let cityName = data.name;
         let  humidity = data.main.humidity;
@@ -115,15 +120,16 @@ function fetchAPI(url){
         let weatherDesciption = data.weather[0].description;
 
         let feelslikeData = data.main.feels_like;
-        let pressureData = data.main.pressue;
+        let pressureData = data.main.pressure;
 
-        let gustData = data.wind.gust;
+
+        // let gustData = data.wind.gust;
         let degData = data.wind.deg;
         // console.log(pressureData);
 
         // (tempData, location, humidityData, windData, weatherIconCode,weatherDesciption, pressureData, feelsLikeData, gustData, degData)
 
-        updatePage(temp,cityName,humidity,windSpeed,weatherIconCode,weatherDesciption,pressureData,feelslikeData, gustData , degData);
+        updatePage(temp,cityName,humidity,windSpeed,weatherIconCode,weatherDesciption,pressureData,feelslikeData, degData);
     })
     .catch((error) => alert('City Entered is not Found. Please Re-enter.'));
     // console.log('Error Encountered:',error)
