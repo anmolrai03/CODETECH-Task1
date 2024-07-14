@@ -189,7 +189,7 @@ body{
 
 
 .desktop-view{
-    border: 3px solid white;
+    /* border: 3px solid white; */
     height: 65vh;
     width: 100vw;
     /* align-items: center; */
@@ -250,4 +250,17 @@ body{
     border: 3px solid red;
     width: 100vw;
     /* height: 20vh; */
+}
+
+.about-us{
+    border: 2px solid orange;
+}
+
+.contact-us{
+    border: 2px solid green;
+}
+
+.tooltip:hover{
+    transform: scale(1.5);
+    color:skyblue;
 }
