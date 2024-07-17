@@ -21,7 +21,6 @@ To design and develop a web-based Weather App that provides current and forecast
 
 * Search for weather by city or zip code
 * Display current weather conditions, including temperature, humidity, wind speed, and more
-* Display 5-day weather forecast
 * Responsive design for mobile and desktop devices
 
 ### TECHONOLOGIES USED : 
